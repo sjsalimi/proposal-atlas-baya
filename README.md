@@ -1,28 +1,32 @@
 # ATLAS × BAYA — Interactive Investment Proposal
 
-This repository contains the Persian (RTL) HTML investment proposal for Atlas Agent Innovator and BAYA.
+پروپوزال تعاملی فارسی و راست‌به‌چپ برای همکاری راهبردی اطلس عامل نوآور و بایا.
 
-## Main entry
-- `index.html` — standalone site (inline layout, scripts, artwork)
+## فایل اصلی
 
-## Deploy with Cloudflare Pages (Git integration)
-1. Cloudflare Dashboard → **Workers & Pages** → **Create application** → **Pages** → **Connect to Git**.
-2. Authorize GitHub and select private repository `sjsalimi/proposal-atlas-baya`.
-3. Choose branch `main`.
-4. Framework preset: `None` (no framework).
-5. Build command: `mkdir -p dist && cp index.html dist/index.html`
-6. Build output directory: `dist`; root directory: repository root.
-7. Deploy and check the generated `*.pages.dev` hostname.
+- `index.html` — نسخه مستقل صفحه شامل سبک‌ها، تعاملات و نشان‌ها
 
-## Confidentiality — important
-The GitHub repository is **private** but the deployed Cloudflare Pages website is **public by default**. Before sharing the URL, use **Cloudflare Access** to limit access to approved email addresses (for example, representatives of BAYA). Protect both the production `project.pages.dev` URL and preview deployment URLs. Merely enabling the Pages preview access policy does **not** secure production; consult the Cloudflare Pages Known issues guide under "Enable Access on your *.pages.dev domain".
+## انتشار مستقیم با GitHub Pages
 
-Documentation:
-- https://developers.cloudflare.com/pages/get-started/git-integration/
-- https://developers.cloudflare.com/pages/platform/known-issues/
-- https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/one-time-pin/
+1. آدرس [Settings → Pages](https://github.com/sjsalimi/proposal-atlas-baya/settings/pages) را باز کنید.
+2. در **Build and deployment**، گزینه **Source → Deploy from a branch** را انتخاب کنید.
+3. **Branch: main** و **Folder: /(root)** را انتخاب و **Save** کنید.
+4. وضعیت را در تب **Actions** بررسی کنید. پس از موفقیت، آدرس معمول سایت:
+   `https://sjsalimi.github.io/proposal-atlas-baya/`
 
-## Updates
-Future pushes to `main` trigger an automatic Pages deployment after the Git integration is configured.
+### شرایط فعال‌سازی
+
+- برای GitHub Free، انتشار Pages از ریپازیتوری **Public** پشتیبانی می‌شود.
+- برای انتشار از ریپازیتوری **Private**، GitHub Pro، Team یا Enterprise لازم است.
+- **مهم: سایت GitHub Pages حتی در صورت خصوصی‌بودن ریپازیتوری، عموماً برای همه بازدیدکنندگان اینترنت عمومی است.**
+- چون سند حاوی اطلاعات محرمانه سرمایه‌گذاری و سهام است، پیش از فعال‌سازی و اشتراک URL، مجوز انتشار عمومی باید جداگانه بررسی شود. واژه «محرمانه» در فوتر، کنترل دسترسی ایجاد نمی‌کند.
+
+منابع رسمی:
+- https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
+- https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+
+## تغییرات
+
+با اتصال Pages به branch `main`، به‌روزرسانی فایل `index.html` موجب انتشار مجدد می‌شود.
 
 © 2026 R&T Department — Atlas Agent Innovator. Confidential BAYA proposal.
