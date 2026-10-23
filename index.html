@@ -128,6 +128,16 @@
 /* ATLAS product cards: one emblem in the header; no duplicate symbol beside the name. */
 .suite-product-logo{width:58px!important;height:58px!important;object-position:center center!important}
 .suite-product-content{gap:0}
+
+/* Floating scroll-to-top control — icon only */
+#backToTopButton{position:fixed;inset:auto 24px 24px auto;z-index:290;width:48px;height:48px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(114,217,229,.53);background:#0d3042;color:#b6f1f2;box-shadow:0 8px 25px rgba(5,18,28,.26);cursor:pointer;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(12px);transition:opacity .2s ease,transform .2s ease,visibility .2s ease,background .2s ease}
+#backToTopButton.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+#backToTopButton:hover{background:#1b6173;transform:translateY(-3px)}
+#backToTopButton svg{width:23px;height:23px;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;fill:none}
+#backToTopButton:focus-visible{outline:3px solid #f0b85e;outline-offset:3px}
+@media(max-width:600px){#backToTopButton{right:16px;bottom:18px;width:44px;height:44px}}
+@media(prefers-reduced-motion:reduce){#backToTopButton{transition:none}}
+@media print{#backToTopButton{display:none!important}}
 </style>
 </head>
 <body>
@@ -574,6 +584,23 @@ $('printBtn').addEventListener('click',()=>window.print());function updateProgre
  makeRows();render();
 })();
 
+</script>
+
+<button id="backToTopButton" type="button" aria-label="بازگشت به بالای صفحه" title="بازگشت به بالا">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(()=>{
+  const button=document.getElementById('backToTopButton');
+  if(!button)return;
+  const updateVisibility=()=>button.classList.toggle('is-visible',window.scrollY>440);
+  window.addEventListener('scroll',updateVisibility,{passive:true});
+  updateVisibility();
+  button.addEventListener('click',()=>{
+    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0,behavior:reduced?'auto':'smooth'});
+  });
+})();
 </script>
 </body>
 </html>
